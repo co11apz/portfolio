@@ -1,0 +1,37 @@
+/***/
+/*{*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*html,*/
+/*body*/
+/*{*/
+/*    overflow: hidden;*/
+/*}*/
+
+.experience
+{
+    position: absolute; /* Используйте absolute, если .experience внутри секции, иначе relative */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ширина занимает 100% ширины родительского контейнера (в данном случае, секции) */
+    height: 100%; /* Высота занимает 100% высоты родительского контейнера (в данном случае, секции) */
+    z-index: 0;
+}
+
+/*.credits*/
+/*{*/
+/*    position: absolute;*/
+/*    bottom: 20px;*/
+/*    right: 20px;*/
+/*    color: #ffffff;*/
+/*    text-align: right;*/
+/*    font-family: 'Roboto', sans-serif;*/
+/*}*/
+
+/*.credits a*/
+/*{*/
+/*    color: inherit;*/
+/*}*/

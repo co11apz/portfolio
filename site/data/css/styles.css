@@ -594,6 +594,24 @@ progress {
   height: auto;
 }
 
+.img-fluid-selenium {
+  max-width: 100%;
+  width: 400px;
+  height: 300px;
+}
+
+.img-fluid-atlassian {
+  max-width: 100%;
+  width: 400px;
+  height: 300px;
+}
+
+.img-fluid-git {
+  max-width: 100%;
+  margin-left: 50px;
+  height: auto;
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;

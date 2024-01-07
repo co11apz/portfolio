@@ -128,46 +128,46 @@
                 </div>
             </div>
         </section>
+        <!-- hands thing -->
+        <div id="scene-container">
+            <script type="importmap">
+              {
+                "imports": {
+                  "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+                  "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
+                }
+              }
+            </script>
+
+            <!-- UTILS FUNCTIONS -->
+
+            <script>
+
+            function getRandomFromArr(arr) {
+
+              const randomElement = arr[Math.floor(Math.random() * arr.length)];
+              return randomElement;
+
+            }
+
+            function getRandomBetween(min, max) {
+
+              return Math.random() * (max - min) + min;
+
+            }
+
+            function getRandomIntBetween(min, max) {
+
+              min = Math.ceil(min);
+              max = Math.floor(max);
+              return Math.floor(Math.random() * (max - min + 1)) + min;
+
+            }
+
+            </script>
+        </div>
         <!-- About Section-->
-        <section class="about-page-section text-white mb-0" id="about">
-            <!-- hands thing -->
-            <div id="scene-container">
-                <script type="importmap">
-                  {
-                    "imports": {
-                      "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
-                      "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
-                    }
-                  }
-                </script>
-
-                <!-- UTILS FUNCTIONS -->
-
-                <script>
-
-                function getRandomFromArr(arr) {
-
-                  const randomElement = arr[Math.floor(Math.random() * arr.length)];
-                  return randomElement;
-
-                }
-
-                function getRandomBetween(min, max) {
-
-                  return Math.random() * (max - min) + min;
-
-                }
-
-                function getRandomIntBetween(min, max) {
-
-                  min = Math.ceil(min);
-                  max = Math.floor(max);
-                  return Math.floor(Math.random() * (max - min + 1)) + min;
-
-                }
-
-                </script>
-            </div>
+        <section class="about-page-section bg-black text-white mb-0" id="about">
             <div class="about-container">
                 <!-- About Section Heading-->
                 <h2 class="page-section-heading about-text-center text-uppercase text-white">About</h2>

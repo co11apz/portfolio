@@ -618,7 +618,7 @@ progress {
 }
 
 .about-container {
-  padding-top: 200px;
+  padding-top: 170px;
 }
 
 .about-container,
@@ -8179,7 +8179,13 @@ textarea.form-control-lg {
 }
 
 .bg-black {
-  --bs-bg-opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Установите более высокий z-index, чтобы .bg-black находился выше #scene-container */
+  --bs-bg-opacity: 0.5;
   background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
 }
 
@@ -10856,7 +10862,7 @@ html {
 .about-page-section {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   z-index: 1;
 }
 
@@ -10944,13 +10950,13 @@ html {
   color: #fff;
 }
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-  color: #1abc9c;
+  color: rgba(147, 112, 219);
 }
 #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
   color: #fff;
 }
 #mainNav .navbar-nav li.nav-item a.nav-link.active {
-  color: #1abc9c;
+  color: rgba(147, 112, 219);
 }
 #mainNav .navbar-toggler {
   font-size: 80%;
@@ -10973,11 +10979,11 @@ html {
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
     color: #fff;
-    background: #1abc9c;
+    background: rgba(147, 112, 219);
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
     color: #fff;
-    background: #1abc9c;
+    background: rgba(147, 112, 219);
   }
   #mainNav.navbar-shrink {
     padding-top: 0.5rem;
@@ -11053,7 +11059,7 @@ html {
   left: 0;
   transition: all 0.2s ease-in-out;
   opacity: 0;
-  background-color: rgba(26, 188, 156, 0.9);
+  background-color: rgba(147, 112, 219, 0.8);
 }
 .portfolio .portfolio-item .portfolio-item-caption:hover {
   opacity: 1;

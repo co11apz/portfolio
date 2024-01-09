@@ -47,3 +47,61 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+// Travel Notes
+
+document.getElementById('travelNotes').addEventListener('click', function() {
+
+    var link1 = document.createElement('a');
+    link1.href = 'https://trello.com/b/AvEQKz0L/travel-notes';
+    link1.target = '_blank';
+
+    var link2 = document.createElement('a');
+    link2.href = 'https://rewqwer.atlassian.net/issues/?jql=project+%3D+%22IT%22+ORDER+BY+created+DESC&atlOrigin=eyJpIjoiM2RlZmVhMTI5NWM3NDNmZTg5NzU2MjI1YTAwY2FmNGEiLCJwIjoiaiJ9';
+    link2.target = '_blank';
+
+    document.body.appendChild(link1);
+
+    link1.addEventListener('click', function(event) {
+
+        if (!confirm("You are about to open the test documentation for the Travel Notes application. Confirm the action.")) {
+            event.preventDefault();
+        } else {
+            document.body.appendChild(link2);
+            link2.click();
+            document.body.removeChild(link2);
+        }
+    });
+
+    link1.click();
+    document.body.removeChild(link1);
+});
+
+// KIMBA 2
+
+document.getElementById('kimba2').addEventListener('click', function() {
+
+    var link1 = document.createElement('a');
+    link1.href = 'https://trello.com/b/7PiG0Oit';
+    link1.target = '_blank';
+
+    var link2 = document.createElement('a');
+    link2.href = 'https://rewqwer.atlassian.net/issues/?jql=project+%3D+%22K2%22+ORDER+BY+created+DESC&atlOrigin=eyJpIjoiNzhmZjgxZjBiYjViNDkwNjk5N2ZkYThhNDllMDU5YzciLCJwIjoiaiJ9';
+    link2.target = '_blank';
+
+    document.body.appendChild(link1);
+
+    link1.addEventListener('click', function(event) {
+
+        if (!confirm("You are about to open the test documentation for the KIMBA 2 application. Confirm the action.")) {
+            event.preventDefault();
+        } else {
+            document.body.appendChild(link2);
+            link2.click();
+            document.body.removeChild(link2);
+        }
+    });
+
+    link1.click();
+    document.body.removeChild(link1);
+});

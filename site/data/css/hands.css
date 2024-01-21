@@ -11,10 +11,10 @@
 
 #scene-container {
   position: absolute;
-  top: 1743px;
+  top: 196vh;
   left: 0;
-  width: 1540px;
-  height: 650px;
+  width: 100vw;;
+  height: 92vh;
   transform-origin: center center;
   background: #0a0a0a;
   z-index: 1;

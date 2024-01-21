@@ -7456,7 +7456,14 @@ textarea.form-control-lg {
 }
 
 .align-items-end {
+  display: flex;
   align-items: flex-end !important;
+}
+
+.align-items-bottom {
+  align-items: center !important;
+  margin-top: 40vh;
+  z-index: 1;
 }
 
 .align-items-center {
@@ -11075,6 +11082,7 @@ html {
   padding-top: calc(6rem + 74px);
   padding-bottom: 6rem;
   z-index: 1;
+  height: 100vh;
 }
 .masthead .masthead-heading {
   font-size: 2.75rem;

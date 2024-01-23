@@ -1,7 +1,7 @@
 import time
 import pytest
-from pages.locators import main_page_locators
-from pages.main_page import MainPage
+from autotests.pages.locators import main_page_locators
+from autotests.pages.main_page import MainPage
 import allure
 from autotests.conftest import driver
 

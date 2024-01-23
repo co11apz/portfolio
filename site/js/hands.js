@@ -45,9 +45,9 @@ let sceneParams = {
 
 // ASSETS 
 
-const handURL = '/portfolio/site/data/assets/hand_noNormals_optimized_AnnaTheScavenger.glb';
-const steelURL = '/portfolio/site/data/assets/img/hands/matcap_steel_256.jpg';
-const purpleGlassURL = '/portfolio/site/data/assets/img/hands/matcapPurpleGlass_256.png';
+const handURL = '/portfolio/site/assets/hand_noNormals_optimized_AnnaTheScavenger.glb';
+const steelURL = '/portfolio/site/assets/img/hands/matcap_steel_256.jpg';
+const purpleGlassURL = '/portfolio/site/assets/img/hands/matcapPurpleGlass_256.png';
 
 
 let materials;

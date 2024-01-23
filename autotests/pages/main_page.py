@@ -1,8 +1,8 @@
 import time
 import allure
 from selenium.webdriver.common.by import By
-from Roman_Malajev.diplom.pages.base_page import BasePage
-from Roman_Malajev.diplom.pages.locators import main_page_locators
+from autotests.pages.base_page import BasePage
+from autotests.pages.locators import main_page_locators
 
 
 class MainPage(BasePage):

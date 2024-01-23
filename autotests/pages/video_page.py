@@ -3,9 +3,9 @@ import time
 import allure
 from selenium.common import NoSuchElementException
 
-from Roman_Malajev.diplom.pages.base_page import BasePage
+from autotests.pages.base_page import BasePage
 
-from Roman_Malajev.diplom.pages.locators import video_page_locators
+from autotests.pages.locators import video_page_locators
 
 
 class Header(BasePage):

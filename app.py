@@ -1,23 +1,10 @@
 """ Импортирование библиотеки для работы с Flask и запусков субпроцессов. """
-
+import os
 import subprocess
 from flask import Flask, render_template
 
 
 app = Flask(__name__)
-
-
-@app.route('/welcome')
-def welcome():
-    """ Эта функция запуская и отвечает за процесс возврата результата welcome.html. """
-
-    return render_template('welcome.html')
-
-
-@app.route("/error")
-def error():
-    """Эта функция запуская и отвечает за процесс возврата результата test_error.html."""
-    return render_template('test_error.html')
 
 
 @app.route("/runallure")
@@ -37,7 +24,7 @@ def run_allure():
 def run():
     """ Эта функция запуская и отвечает за тесты страницы /example. """
 
-    cmd = ["./assets/autotests.sh"]
+    cmd = ["./site/assets/autotests.sh"]
     with subprocess.Popen(cmd, stdout=subprocess.PIPE,
                           stderr=subprocess.PIPE,
                           stdin=subprocess.PIPE,

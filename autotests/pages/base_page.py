@@ -1,6 +1,7 @@
 import time
 from urllib.parse import urlparse
 import allure
+import requests
 from selenium.common import TimeoutException, NoSuchElementException
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
@@ -12,6 +13,49 @@ from selenium.webdriver.common.action_chains import ActionChains
 class BasePage:
     def __init__(self, driver: WebDriver):
         self.driver = driver
+
+    def check_button_text(self, locator, expected_value):
+        actual_value = self.driver.find_element(*locator).text
+        if actual_value == expected_value:
+            pass
+        else:
+            raise ValueError(f"тексты кнопок не совпадают actual:{actual_value}, expected:{expected_value}")
+
+    def check_placeholder(self, locator,  expected_value):
+        actual_value = self.driver.find_element(*locator).get_attribute("placeholder")
+        if actual_value == expected_value:
+            pass
+        else:
+            raise ValueError(f"placeholder'ы не совпадают actual:{actual_value}, expected:{expected_value}")
+
+    def check_headers_yt(self, url, headers, payload):
+        with allure.step('Проверка скорости ответа сервера'):
+            start_time = time.time()
+            response = requests.request("POST", url, headers=headers, data=payload)
+            end_time = time.time()
+            final_time = end_time - start_time
+            assert final_time < 1
+
+        with allure.step("API Проверка статус кода"):
+            assert response.status_code == 200
+
+        with allure.step("API Проверка значения параметра Content-Type"):
+            assert response.headers['Content-Type'] == 'application/json; charset=UTF-8'
+
+        with allure.step("API Проверка значения параметра Server"):
+            assert response.headers['Server'] == 'scaffolding on HTTPServer2'
+
+        with allure.step("API Проверка значения параметра Cache-Control"):
+            assert response.headers['Cache-Control'] == 'private'
+
+        with allure.step("API Проверка значения параметра X-XSS-Protection"):
+            assert response.headers['X-XSS-Protection'] == '0'
+
+        with allure.step("API Проверка значения параметра X-Frame-Options"):
+            assert response.headers['X-Frame-Options'] == 'SAMEORIGIN'
+
+        with allure.step("API Проверка значения параметра X-Content-Type-Options"):
+            assert response.headers['X-Content-Type-Options'] == 'nosniff'
 
     def wait_for_page_to_load(self, driver, timeout=10):
         WebDriverWait(driver, timeout).until(
@@ -36,7 +80,7 @@ class BasePage:
         except TimeoutException:
             return False
 
-    def click_element(self, locator):
+    def find_and_click_element(self, locator):
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
         element.click()
 

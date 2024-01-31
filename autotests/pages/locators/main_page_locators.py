@@ -13,7 +13,7 @@ dop_cancel_button = (By.XPATH, '(//button[@class="yt-spec-button-shape-next yt-s
 
 #header_settings
 your_data_button = (By.CSS_SELECTOR, '[href="https://myaccount.google.com/u/0/yourdata/youtube?hl=ru"]')
-theme_button = (By.CSS_SELECTOR, '[role="option"]')
+theme_button = (By.XPATH, '//ytd-toggle-theme-compact-link-renderer[@class="style-scope yt-multi-page-menu-section-renderer" and @role="option"]')
 language_button = (By.XPATH, '(//a[@class="yt-simple-endpoint style-scope ytd-compact-link-renderer"])[2]')
 safemode_button = (By.XPATH, '(//div[@id="items"]//ytd-compact-link-renderer[@class="style-scope yt-multi-page-menu-section-renderer"])[3]')
 country_button = (By.XPATH, '(//div[@id="items"]//ytd-compact-link-renderer[@class="style-scope yt-multi-page-menu-section-renderer"])[4]')
@@ -21,7 +21,7 @@ hotkeys_button = (By.XPATH, '(//div[@id="items"]//ytd-compact-link-renderer[@cla
 inoptions_button = (By.XPATH, '(//div[@id="items"]//ytd-compact-link-renderer[@class="style-scope yt-multi-page-menu-section-renderer"])[6]')
 inabout_button = (By.XPATH, '(//div[@id="items"]//ytd-compact-link-renderer[@class="style-scope yt-multi-page-menu-section-renderer"])[7]')
 insend_report_button = (By.XPATH, '(//div[@id="items"]//ytd-compact-link-renderer[@class="style-scope yt-multi-page-menu-section-renderer"])[8]')
-back_button = (By.XPATH, '(//button[@class="yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-only-default"])[4]')
+back_button = (By.XPATH, '//button[@class="yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-only-default" and @aria-label="Назад"]')
 close_button = (By.CSS_SELECTOR, '[class="yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--call-to-action yt-spec-button-shape-next--size-m"]')
 help_close_button = (By.XPATH, '//button[@class="help-panel-header__close-button"]')
 report_close_button = (By.XPATH, '(//button[@class="scSharedMaterialbuttonroot scSharedMaterialbuttontext scSharedMaterialbuttoncolor-label scSharedMaterialbuttonicon-only"])[2]')
@@ -69,6 +69,7 @@ categoria_action_and_adventures_button = (By.XPATH, '//yt-formatted-string[@id="
 categoria_nature_button = (By.XPATH, '//yt-formatted-string[@id="text" and @title="Природа"]')
 categoria_recently_published_button = (By.XPATH, '//yt-formatted-string[@id="text" and @title="Недавно опубликованные"]')
 categories = 'yt-chip-cloud-chip-renderer[class="style-scope ytd-feed-filter-chip-bar-renderer"]'
+categoria_next = (By.CSS_SELECTOR, '[aria-label="Далее"]')
 
 #videos
 videos = '//div[@class="style-scope ytd-rich-item-renderer"]'
@@ -84,3 +85,9 @@ not_now_button = '[class="VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-dgl2Hf ksBjEc lKxP2
 create_button = (By.CSS_SELECTOR, '[class="style-scope ytd-topbar-menu-button-renderer style-default"]')
 notifications_button = (By.CSS_SELECTOR, '[aria-label="Уведомления"]')
 avatar_button = (By.CSS_SELECTOR, '[id="avatar-btn"]')
+
+#placeholders
+placeholder_search_field = (By.CSS_SELECTOR, 'input[id="search"]')
+
+#buttontext
+text_header_login_button = (By.XPATH, '(//span[@class="yt-core-attributed-string yt-core-attributed-string--white-space-no-wrap"])[2]')

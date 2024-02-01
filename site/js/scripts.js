@@ -64,7 +64,7 @@ document.getElementById('travelNotes').addEventListener('click', function() {
 
     link1.addEventListener('click', function(event) {
 
-        if (!confirm("You are about to open the test documentation for the Travel Notes application. Confirm the action.")) {
+        if (!confirm('"Travel Notes" is a web application for creating travel notes.\n\nYou are about to open the test documentation for the Travel Notes application. Confirm the action.')) {
             event.preventDefault();
         } else {
             document.body.appendChild(link2);
@@ -93,7 +93,7 @@ document.getElementById('kimba2').addEventListener('click', function() {
 
     link1.addEventListener('click', function(event) {
 
-        if (!confirm("You are about to open the test documentation for the KIMBA 2 application. Confirm the action.")) {
+        if (!confirm('"KIMBA 2" is a desktop application for photo editing.\n\nYou are about to open the test documentation for the KIMBA 2 application. Confirm the action.')) {
             event.preventDefault();
         } else {
             document.body.appendChild(link2);

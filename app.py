@@ -4,8 +4,11 @@ import subprocess
 from flask import Flask, render_template
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='site')
 
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route("/runallure")
 def run_allure():

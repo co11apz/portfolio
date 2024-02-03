@@ -25,7 +25,7 @@ def run_allure():
 
 @app.route("/run")
 def run():
-    os.chdir('C:/Users/roman/PycharmProjects/mysite/site/assets/')
+    os.chdir('C:/Users/roman/PycharmProjects/portfolio/site/assets/')
     cmd = ["autotests.sh"]
     with subprocess.Popen(cmd, stdout=subprocess.PIPE,
                           stderr=subprocess.PIPE,

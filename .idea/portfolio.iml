@@ -4,12 +4,15 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.10 (mysite)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.12 (portfolio)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="three.js" level="application" />
     <orderEntry type="library" name="all" level="application" />
     <orderEntry type="library" name="sb-forms-latest" level="application" />
     <orderEntry type="library" name="babylon" level="application" />
+  </component>
+  <component name="PackageRequirementsSettings">
+    <option name="requirementsPath" value="" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_FOLDERS">
@@ -17,5 +20,8 @@
         <option value="$MODULE_DIR$/templates" />
       </list>
     </option>
+  </component>
+  <component name="TestRunnerService">
+    <option name="PROJECT_TEST_RUNNER" value="py.test" />
   </component>
 </module>

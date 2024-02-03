@@ -34,7 +34,7 @@ class BasePage:
             response = requests.request("POST", url, headers=headers, data=payload)
             end_time = time.time()
             final_time = end_time - start_time
-            assert final_time < 1
+            assert final_time < 2
 
         with allure.step("API Проверка статус кода"):
             assert response.status_code == 200

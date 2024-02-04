@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /c/Users/roman/PycharmProjects/portfolio/
+cd "$(dirname "$0")"
 
 # Запуск тестов и сохранение результатов в allure-results
 pytest -s -v --alluredir=./autotests/allure-results ./autotests/tests/test_main_page.py

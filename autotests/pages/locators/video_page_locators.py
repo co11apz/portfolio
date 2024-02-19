@@ -1,3 +1,4 @@
+""" Здесь содержатся локаторы видео страницы """
 from selenium.webdriver.common.by import By
 
 #video_section

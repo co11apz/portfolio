@@ -1,3 +1,4 @@
+""" Здесь содержатся локаторы главной страницы """
 from selenium.webdriver.common.by import By
 
 #header

@@ -6,31 +6,20 @@ from flask import Flask, render_template
 
 app = Flask(__name__, static_folder='site')
 
+
 @app.route('/')
 def index():
+    """ Эта функция отвечает за возврат html """
+
     return render_template('index.html')
-
-@app.route("/runallure")
-def run_allure():
-    """ Эта функция запуская и отвечает за генерацию отчета allure. """
-
-    cmd = ["./scriptsh/runallure.sh"]
-    with subprocess.Popen(cmd, stdout=subprocess.PIPE,
-                          stderr=subprocess.PIPE,
-                          stdin=subprocess.PIPE,
-                          universal_newlines=True) as result:
-        out = result.communicate()
-    return render_template('index.html', text=out, json=out)
 
 
 @app.route("/run")
 def run():
+    """ Эта функция отвечает за запуск тестов и генерацию отчета allure """
+
     script_path = os.path.dirname(os.path.abspath(__file__))
-
-    # Путь к папке assets относительно текущего скрипта
     assets_path = os.path.join(script_path)
-
-    # Переходим в папку assets
     os.chdir(assets_path)
     cmd = ["autotests.sh"]
     with subprocess.Popen(cmd, stdout=subprocess.PIPE,

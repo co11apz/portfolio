@@ -1,30 +1,7 @@
-/*
-
-  Click around:)
-  
-  I dedicate this scene to anyone who follows their dreams.
-  
-  Experiments with instancing - setting rotation, scale, color.
-  
-  Assets credits:
-  Matcaps - thanks to maru savla and nidorx
-  https://www.artstation.com/marketplace/p/jjPAM/free-matcap-collection-3
-  https://github.com/nidorx/matcaps
-  
-  art & code by 
-  Anna Zenn Scavenger, December 2023
-  https://twitter.com/ouchpixels
-  
-  License: You can remix, adapt, and build upon my code non-commercially.
-
-*/
-
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 let container, camera, scene, renderer;
-
-// PLAY WITH THE PARAMS!:)
 
 let sceneParams = {
   

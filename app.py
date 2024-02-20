@@ -9,7 +9,7 @@ app = Flask(__name__, static_folder='site')
 
 @app.route('/')
 def index():
-    """ Эта функция отвечает за возврат html """
+    """ Эта функция отвечает за возврат html файла """
 
     return render_template('index.html')
 

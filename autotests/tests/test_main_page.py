@@ -1,6 +1,5 @@
-import time
+"""Импорт нужных библиотек для запуска тестов"""
 import pytest
-from autotests.pages.locators import main_page_locators
 from autotests.pages.main_page import MainPage
 import allure
 from autotests.conftest import driver
@@ -8,8 +7,10 @@ from autotests.conftest import driver
 
 @pytest.mark.presentation
 @allure.suite("API")
-@allure.title("API проверка гиперссылкок")
+@allure.title("API проверка гиперссылок")
 def test_api(driver):
+    """Запуск тестов для API проверки гиперссылок на главной странице"""
+
     main_page = MainPage(driver)
     main_page.open_page_api()
     main_page.check_header_logo_button_api()
@@ -36,6 +37,8 @@ def test_api(driver):
 @allure.suite("Header")
 @allure.title("Проверка наличия элементов хедэра")
 def test_header_items(driver):
+    """Запуск тестов для проверки наличия элементов хедэра на главной странице"""
+
     main_page = MainPage(driver)
     main_page.open_page()
     main_page.check_header_burger_button()
@@ -52,6 +55,8 @@ def test_header_items(driver):
 @allure.suite("Settings menu")
 @allure.title("Проверка наличия элементов меню настроек")
 def test_header_settings_menu_items(driver):
+    """Запуск тестов для проверки наличия элементов меню настроек"""
+
     main_page = MainPage(driver)
     main_page.open_page()
     main_page.open_settings_menu()
@@ -70,6 +75,8 @@ def test_header_settings_menu_items(driver):
 @allure.suite("Left menu")
 @allure.title("Проверка наличия элементов бокового меню")
 def test_left_menu_items(driver):
+    """Запуск тестов для проверки наличия элементов бокового меню"""
+
     main_page = MainPage(driver)
     main_page.open_page()
     main_page.check_left_menu_main_button()
@@ -96,6 +103,8 @@ def test_left_menu_items(driver):
 @allure.suite("Left menu closed")
 @allure.title("Проверка наличия элементов закрытого бокового меню")
 def test_closed_left_menu_items(driver):
+    """Запуск тестов для проверки наличия элементов закрытого бокового меню"""
+
     main_page = MainPage(driver)
     main_page.open_page()
     main_page.close_left_menu()
@@ -110,6 +119,8 @@ def test_closed_left_menu_items(driver):
 @allure.suite("Categories")
 @allure.title("Проверка наличия категорий")
 def test_categories(driver):
+    """Запуск тестов для проверки наличия категорий"""
+
     main_page = MainPage(driver)
     main_page.open_page()
     main_page.check_categories()
@@ -119,6 +130,8 @@ def test_categories(driver):
 @allure.suite("Videos")
 @allure.title("Проверка видео")
 def test_videos(driver):
+    """Запуск тестов для проверки видео"""
+
     main_page = MainPage(driver)
     main_page.open_page()
     main_page.check_videos_img()

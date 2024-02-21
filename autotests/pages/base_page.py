@@ -1,11 +1,11 @@
 """ Импорт нужных библиотек для написания методов """
 import time
-from urllib.parse import urlparse
 import allure
 import requests
 from selenium.common import TimeoutException
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -72,20 +72,6 @@ class BasePage:
             EC.presence_of_all_elements_located((By.XPATH, "//*"))
         )
 
-    def get_domain(self, url):
-        """ Эта функция принимает url и возвращает доменное имя """
-
-        parsed_url = urlparse(url)
-        return parsed_url.netloc
-
-    def compare_domains(self, def_url, cur_url):
-        """ Эта функция сравнивает два url """
-
-        def_domain = self.get_domain(def_url)
-        cur_domain = self.get_domain(cur_url)
-        if def_domain == cur_domain:
-            return True
-
     def wait_for_element_visibility(self, locator):
         """ Эта функция создает ожидание для появления элемента """
 
@@ -96,10 +82,31 @@ class BasePage:
         except TimeoutException:
             return False
 
+    def wait_for_element_clickable_web(self, element: WebElement, timeout=20):
+        """Ожидает, пока найденный веб-элемент не станет видимым и кликабельным, и кликает по нему."""
+        end_time = time.time() + timeout
+        while True:
+            try:
+                if element.is_displayed() and element.is_enabled():
+                    element.click()
+                    return True
+            except Exception as e:
+                pass
+            time.sleep(0.5)
+            if time.time() > end_time:
+                break
+        raise TimeoutException(f"Элемент не стал видимым и кликабельным после {timeout} секунд")
+
     def find_and_click_element(self, locator):
         """ Эта функция находит элемент и нажимает на него """
 
-        element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
+        element = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(locator))
+        element.click()
+
+    def find_and_click_element_fast(self, locator):
+        """ Эта функция находит элемент и нажимает на него (ждет гораздо меньше чем стандартный метод) """
+
+        element = WebDriverWait(self.driver, 1).until(EC.visibility_of_element_located(locator))
         element.click()
 
     def check_elements_click(self, arg):

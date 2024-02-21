@@ -10,7 +10,7 @@ options_button = (By.XPATH, '(//button[@aria-label="Настройки"])[1]')
 header_login_button = (By.XPATH, '(//ytd-button-renderer[@class="style-scope ytd-masthead"])[3]')
 voice_search_button = (By.CSS_SELECTOR, '[class="yt-spec-touch-feedback-shape yt-spec-touch-feedback-shape--overlay-touch-response"]')
 logo_button = (By.XPATH, '(//a[@class="yt-simple-endpoint style-scope ytd-topbar-logo-renderer"])[1]')
-dop_cancel_button = (By.XPATH, '(//button[@class="yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-only-default"])[4]')
+dop_cancel_button = (By.CSS_SELECTOR, '[class="yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--call-to-action yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-only-default"]')
 
 #header_settings
 your_data_button = (By.CSS_SELECTOR, '[href="https://myaccount.google.com/u/0/yourdata/youtube?hl=ru"]')
@@ -25,10 +25,13 @@ insend_report_button = (By.XPATH, '(//div[@id="items"]//ytd-compact-link-rendere
 back_button = (By.XPATH, '//button[@class="yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-only-default" and @aria-label="Назад"]')
 close_button = (By.CSS_SELECTOR, '[class="yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--call-to-action yt-spec-button-shape-next--size-m"]')
 help_close_button = (By.XPATH, '//button[@class="help-panel-header__close-button"]')
-report_close_button = (By.XPATH, '(//button[@class="scSharedMaterialbuttonroot scSharedMaterialbuttontext scSharedMaterialbuttoncolor-label scSharedMaterialbuttonicon-only"])[2]')
+report_close_button = (By.CSS_SELECTOR, '[class="help-panel-header__close-button"]')
+submit_report_close_button = (By.XPATH, '(//button[@type="button" and @aria-label="Закрыть"])[2]')
 menu_container = (By.XPATH, '(//div[@class="menu-container style-scope ytd-multi-page-menu-renderer"])[1]')
-iframe_help = (By.CSS_SELECTOR, '[id="help_panel_main_frame"]')
-iframe_feedback = (By.CSS_SELECTOR, '[id="google-feedback-iframe"]')
+iframe_help_main = (By.CSS_SELECTOR, '[id="help_panel_main_frame"]')
+iframe_feedback = (By.CSS_SELECTOR, 'iframe[id="google-feedback-iframe"]')
+iframe_main = (By.XPATH, '(//iframe[@frameborder="0"])[1]')
+iframe_help = (By.CSS_SELECTOR, 'iframe[id="help_panel_content_frame"]')
 
 #left menu
 history_button = (By.XPATH, '(//a[@href="/feed/history"])[1]')

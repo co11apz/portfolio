@@ -9,7 +9,6 @@ def driver():
     """ Эта функция отвечает за запуск и настройку браузера """
 
     options = Options()
-    options.add_argument("--headless") #Установка опции для запуска браузера без отображения интерфейса.
     options.add_argument("--disable-gpu") #Отключение использования GPU браузером.
     options.add_argument('log-level=3') #Установка уровня логирования на уровень 3 (минимальный уровень)
     options.add_argument("--disable-notifications") #Отключение уведомлений в браузере.

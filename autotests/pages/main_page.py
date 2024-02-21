@@ -1,6 +1,7 @@
 """ Импорт нужных библиотек для написания тестов """
 import time
 import allure
+from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from autotests.pages.base_page import BasePage
 from autotests.pages.locators import main_page_locators
@@ -176,12 +177,18 @@ class MainPage(BasePage):
         """Проверяет наличие кнопки 'Справка' в меню настроек."""
 
         with allure.step("Проверка наличия кнопки справка в меню настройки"):
-            self.wait_for_element_visibility(main_page_locators.inabout_button)
-            # self.driver.implicitly_wait(5)
-            # iframe = self.wait_for_element_visibility(main_page_locators.iframe_help)
-            # self.driver.switch_to.frame(iframe)
-            # self.find_and_click_element(main_page_locators.report_close_button)
-            # time.sleep(0.5)
+            self.find_and_click_element(main_page_locators.inabout_button)
+            self.driver.implicitly_wait(5)
+            iframe = self.wait_for_element_visibility(main_page_locators.iframe_help_main)
+            time.sleep(1.1)
+            self.driver.switch_to.frame(iframe)
+            time.sleep(1)
+            iframe = self.wait_for_element_visibility(main_page_locators.iframe_help)
+            time.sleep(1)
+            self.driver.switch_to.frame(iframe)
+            self.find_and_click_element(main_page_locators.report_close_button)
+            self.driver.switch_to.default_content()
+            time.sleep(0.5)
 
     def check_settings_menu_send_report_button(self):
         """Проверяет наличие кнопки 'Отправить отзыв' в меню настроек и закрывает соответствующее всплывающее окно."""
@@ -189,9 +196,14 @@ class MainPage(BasePage):
         with allure.step("Проверка наличия кнопки отправить отзыв в меню настройки"):
             self.find_and_click_element(main_page_locators.insend_report_button)
             self.driver.implicitly_wait(5)
-            iframe = self.wait_for_element_visibility(main_page_locators.iframe_feedback)
+            iframe = self.wait_for_element_visibility(main_page_locators.iframe_main)
+            time.sleep(1)
             self.driver.switch_to.frame(iframe)
-            self.find_and_click_element(main_page_locators.report_close_button)
+            time.sleep(1)
+            iframe = self.wait_for_element_visibility(main_page_locators.iframe_feedback)
+            time.sleep(1)
+            self.driver.switch_to.frame(iframe)
+            self.find_and_click_element(main_page_locators.submit_report_close_button)
 
 #проверка наличия кнопок бокового меню
 
@@ -417,7 +429,17 @@ class MainPage(BasePage):
         """Проверяет наличие кнопки 'Справка' в боковом меню."""
 
         with allure.step("Проверка наличия кнопки Справка в боковом меню"):
-            self.wait_for_element_visibility(main_page_locators.about_button)
+            self.find_and_click_element(main_page_locators.about_button)
+            self.driver.implicitly_wait(5)
+            iframe = self.wait_for_element_visibility(main_page_locators.iframe_help_main)
+            time.sleep(1.1)
+            self.driver.switch_to.frame(iframe)
+            time.sleep(1)
+            iframe = self.wait_for_element_visibility(main_page_locators.iframe_help)
+            time.sleep(1)
+            self.driver.switch_to.frame(iframe)
+            self.find_and_click_element(main_page_locators.report_close_button)
+            self.driver.switch_to.default_content()
             time.sleep(0.5)
 
     def check_left_menu_send_report_button(self):
@@ -426,9 +448,14 @@ class MainPage(BasePage):
         with allure.step("Проверка наличия кнопки Отправить отзыв"):
             self.find_and_click_element(main_page_locators.send_report_button)
             self.driver.implicitly_wait(5)
-            iframe = self.wait_for_element_visibility(main_page_locators.iframe_feedback)
+            iframe = self.wait_for_element_visibility(main_page_locators.iframe_main)
+            time.sleep(1)
             self.driver.switch_to.frame(iframe)
-            self.find_and_click_element(main_page_locators.report_close_button)
+            time.sleep(1)
+            iframe = self.wait_for_element_visibility(main_page_locators.iframe_feedback)
+            time.sleep(1)
+            self.driver.switch_to.frame(iframe)
+            self.find_and_click_element(main_page_locators.submit_report_close_button)
 
 #проверка кнопок бокового меню при закрытом меню
 
@@ -511,13 +538,16 @@ class MainPage(BasePage):
             categories = self.driver.find_elements(By.CSS_SELECTOR, main_page_locators.categories)
             count = 0
             for category in categories:
-                if count == 9:
-                    self.find_and_click_element(main_page_locators.categoria_next)
-                    time.sleep(0.5)
-                self.wait_for_page_to_load(self.driver)
-                category.click()
-                count += 1
-                time.sleep(1)
+                try:
+                    if count == 4:
+                        self.find_and_click_element_fast(main_page_locators.categoria_next)
+                        time.sleep(0.5)
+                except TimeoutException as e:
+                    pass
+                finally:
+                    self.wait_for_element_clickable_web(category, 20)
+                    count += 1
+                    time.sleep(2)
 #проверка видео
 
     def check_videos(self):

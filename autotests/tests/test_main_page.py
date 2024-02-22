@@ -9,7 +9,7 @@ from autotests.conftest import driver
 @allure.suite("API")
 @allure.title("API проверка гиперссылок")
 def test_api(driver):
-    """Запуск тестов для API проверки гиперссылок на главной странице"""
+    """Запуск API тестов для главной страницы"""
 
     main_page = MainPage(driver)
     main_page.open_page_api()
